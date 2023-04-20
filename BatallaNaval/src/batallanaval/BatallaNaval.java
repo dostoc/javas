@@ -19,7 +19,7 @@ public class BatallaNaval {
         Naval juego = new Naval();
         
         juego.inicioTablero();
-        juego.meterBarco();
+        juego.meterBarco(); // FALTA VALIDAR ESPACIOS VACIOS
         do {
         juego.verTablero();
         juego.ingresarJugada();

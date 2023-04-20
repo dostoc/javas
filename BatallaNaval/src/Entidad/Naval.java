@@ -56,25 +56,43 @@ public class Naval {
         tablero[7][0] = " 7 ";
         tablero[8][0] = " 8 ";
         tablero[9][0] = " 9 ";
+        
     }
 
     public void meterBarco(){
-        tablero[5][3] = " B ";
-        tablero[5][4] = " B ";
-        tablero[5][5] = " B ";
+        int inicio,i,j,aux;
+        
+        do {
+            inicio = (int)(Math.random()*2+1);
+            System.out.println(inicio);
+            if (inicio == 1) {                       //vertical
+                i = (int)(Math.random()*9+1);     //fila 1 a 10
+                j = (int)(Math.random()*5+1);     //fila 1 a 10
+                tablero[i][j] = " B ";
+                tablero[i][j+1] = " B ";
+                tablero[i][j+2] = " B ";
+            }else{
+                i = (int)(Math.random()*5+1);     //fila 1 a 10
+                j = (int)(Math.random()*9+1);     //fila 1 a 10
+                tablero[i][j] = " B ";
+                tablero[i+1][j] = " B ";
+                tablero[i+2][j] = " B ";
+            }
+        } while (inicio>3);
+        
         // aleatorio de x posiciones
         //aleatorio de horizontal o vertical
             // verificar posicion hasta que entre el barco
-        
-        
     }
     
-    public void ingresarJugada() {
+    public void ingresarJugada() { // ascii a=97
+        char aux;
         Scanner leer = new Scanner(System.in);
-        System.out.print("Ingrese Columna: ");
-        jugadaI = Integer.parseInt(leer.next());
-        System.out.print("Ingrese Fila: ");
-        jugadaJ = Integer.parseInt(leer.next());
+        System.out.print("Ingrese COLUMNA: ");
+        aux = leer.next().charAt(0);
+        jugadaJ = aux-96;
+        System.out.print("Ingrese FILA: ");
+        jugadaI = leer.nextInt();
         tiros++;
     }
 
@@ -123,11 +141,15 @@ public class Naval {
     public void verTablero() {
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
+                
+                System.out.print(tablero[i][j]);
+                /* SOLO PARA OCULTAR EL BARCO
                 if (tablero[i][j].equals(" B ")) {
                     System.out.print("   ");
                 }else {
                     System.out.print(tablero[i][j]);
                 }
+                */
 
             }
             System.out.println("");
