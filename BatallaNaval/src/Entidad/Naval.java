@@ -17,8 +17,8 @@ public class Naval {
     int jugadaJ;
     String jugador;
     int contBarco;
-    char c = (char)35;
-    char a = (char)126;
+    char c = (char) 35;
+    char a = (char) 126;
     int tiros = 0;
 
     //   0  A  B  C  D     (J)
@@ -56,41 +56,41 @@ public class Naval {
         tablero[7][0] = " 7 ";
         tablero[8][0] = " 8 ";
         tablero[9][0] = " 9 ";
-        
+
     }
 
-    public void meterBarco(){
-        int inicio,i,j,aux;
-        
+    public void meterBarco() {
+        int inicio, i, j, aux;
+
         do {
-            inicio = (int)(Math.random()*2+1);
+            inicio = (int) (Math.random() * 2 + 1);
             System.out.println(inicio);
             if (inicio == 1) {                       //vertical
-                i = (int)(Math.random()*9+1);     //fila 1 a 10
-                j = (int)(Math.random()*5+1);     //fila 1 a 10
+                i = (int) (Math.random() * 9 + 1);     //fila 1 a 10
+                j = (int) (Math.random() * 5 + 1);     //fila 1 a 10
                 tablero[i][j] = " B ";
-                tablero[i][j+1] = " B ";
-                tablero[i][j+2] = " B ";
-            }else{
-                i = (int)(Math.random()*5+1);     //fila 1 a 10
-                j = (int)(Math.random()*9+1);     //fila 1 a 10
+                tablero[i][j + 1] = " B ";
+                tablero[i][j + 2] = " B ";
+            } else {
+                i = (int) (Math.random() * 5 + 1);     //fila 1 a 10
+                j = (int) (Math.random() * 9 + 1);     //fila 1 a 10
                 tablero[i][j] = " B ";
-                tablero[i+1][j] = " B ";
-                tablero[i+2][j] = " B ";
+                tablero[i + 1][j] = " B ";
+                tablero[i + 2][j] = " B ";
             }
-        } while (inicio>3);
-        
+        } while (inicio > 3);
+
         // aleatorio de x posiciones
         //aleatorio de horizontal o vertical
-            // verificar posicion hasta que entre el barco
+        // verificar posicion hasta que entre el barco
     }
-    
+
     public void ingresarJugada() { // ascii a=97
         char aux;
         Scanner leer = new Scanner(System.in);
         System.out.print("Ingrese COLUMNA: ");
         aux = leer.next().charAt(0);
-        jugadaJ = aux-96;
+        jugadaJ = aux - 96;
         System.out.print("Ingrese FILA: ");
         jugadaI = leer.nextInt();
         tiros++;
@@ -98,7 +98,6 @@ public class Naval {
 
     public boolean barcoUndido() {
         boolean tirito = false;
-               
 
         switch (tablero[jugadaI][jugadaJ]) {
             case "   ":
@@ -110,19 +109,7 @@ public class Naval {
                 contBarco++;
                 if (contBarco == 3) {
                     System.out.println("Undido");
-                    for (int i = 1; i < 10; i++) {
-                        for (int j = 1; j < 10; j++) {
-                            if (tablero[i][j].equals(" X ")) {
-                                tablero[i][j] = (" "+c+" ");
-                            }else {
-                                tablero[i][j] = (" "+a+" ");
-                            }
-                        }
-                    }
-                    System.out.println("........JUEGO TERMINADO.......");
-                    System.out.println("Cantidad de disparos: "+ tiros);
-                    System.out.println("..............................");
-                    verTablero();
+
                     tirito = true;
                 } else {
                     System.out.println("Tocado");
@@ -134,14 +121,13 @@ public class Naval {
             default:
                 break;
         }
-
         return tirito;
     }
 
     public void verTablero() {
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
-                
+
                 System.out.print(tablero[i][j]);
                 /* SOLO PARA OCULTAR EL BARCO
                 if (tablero[i][j].equals(" B ")) {
@@ -149,7 +135,7 @@ public class Naval {
                 }else {
                     System.out.print(tablero[i][j]);
                 }
-                */
+                 */
 
             }
             System.out.println("");
@@ -157,5 +143,21 @@ public class Naval {
         }
 
     }
-    
+
+    public void juegoTerminado() {
+        for (int i = 1; i < 10; i++) {
+            for (int j = 1; j < 10; j++) {
+                if (tablero[i][j].equals(" X ")) {
+                    tablero[i][j] = (" " + c + " ");
+                } else {
+                    tablero[i][j] = (" " + a + " ");
+                }
+            }
+        }
+        System.out.println("........JUEGO TERMINADO.......");
+        System.out.println("Cantidad de disparos: " + tiros);
+        System.out.println("..............................");
+        verTablero();
+    }
+
 }

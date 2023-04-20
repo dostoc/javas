@@ -17,13 +17,15 @@ public class BatallaNaval {
      */
     public static void main(String[] args) {
         Naval juego = new Naval();
-        
+      
         juego.inicioTablero();
         juego.meterBarco(); // FALTA VALIDAR ESPACIOS VACIOS
         do {
         juego.verTablero();
         juego.ingresarJugada();
         } while (!(juego.barcoUndido()));
+        
+        juego.juegoTerminado();
         
     }
     
