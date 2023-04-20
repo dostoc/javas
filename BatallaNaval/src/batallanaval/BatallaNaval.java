@@ -19,7 +19,7 @@ public class BatallaNaval {
         Naval juego = new Naval();
         
         juego.inicioTablero();
-        
+        juego.meterBarco();
         do {
         juego.verTablero();
         juego.ingresarJugada();

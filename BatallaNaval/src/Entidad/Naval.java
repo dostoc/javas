@@ -64,7 +64,7 @@ public class Naval {
         tablero[5][5] = " B ";
         // aleatorio de x posiciones
         //aleatorio de horizontal o vertical
-            // verificar posicion hasta que entre
+            // verificar posicion hasta que entre el barco
         
         
     }
