@@ -9,11 +9,13 @@ import java.util.Scanner;
  * @author jonak
  */
 public class CuentaBancariaServicio {
-
+    
+    
+    // El principio de funcionamiento es definir un objeto y parametrizar y volver con los datos de ese objeto al "Objeto real"
     private Scanner leer = new Scanner(System.in).useDelimiter("\n");
 
-    public CuentaBancaria crearCuenta() {
-        CuentaBancaria cuentaAux = new CuentaBancaria();
+    public CuentaBancaria crearCuenta() { // acceso public // tipo CuentaBancaria (constructor de clase de dato) // nombre del metodo
+        CuentaBancaria cuentaAux = new CuentaBancaria(); // nuevo objeto tipo CuentaBancaria (ver clase)
         System.out.print("Nro Cuenta: ");
         cuentaAux.setNumeroCuenta(leer.nextInt());
         System.out.print("Dni Cliente: ");
@@ -27,8 +29,10 @@ public class CuentaBancariaServicio {
     //y se le sumará al saldo actual.
     
     public void ingresar(CuentaBancaria cuentaAux){
-        System.out.print("Ingresar $$$: ");
+        System.out.print("Ingresar a Cuenta: ");
+        System.out.print("(Saldo en cuenta $ "+cuentaAux.getSaldoActual()+"): ");
         cuentaAux.setSaldoActual(cuentaAux.getSaldoActual()+leer.nextDouble());
+        System.out.println("Nuevo saldo $: "+cuentaAux.getSaldoActual());
     }
     
     //Método retirar(double): recibe una cantidad de dinero a retirar 
