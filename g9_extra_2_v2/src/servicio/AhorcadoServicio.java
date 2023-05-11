@@ -28,11 +28,7 @@ public class AhorcadoServicio {
         Ahorcado puente = new Ahorcado();
         System.out.println("Ingrese palabra");
         String auxPalabra = leer.next();
-        char[] palabraArray = new char[auxPalabra.length()];
-        //auxPalabra.getChars(0, auxPalabra.length(), palabraArray, 0);
-        for (int i = 0; i < auxPalabra.length(); i++) {
-            palabraArray[i]=auxPalabra.subSequence(i, i+1).charAt(0);
-        }
+        char[] palabraArray = auxPalabra.toCharArray();
         puente.setPalabraArray(palabraArray);
         System.out.println("Ingrese jugadas maximas");
         puente.setJugadasMaximas(leer.nextInt());
